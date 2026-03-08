@@ -22,6 +22,11 @@
   <xacro:property name="RodaDir_radius" value="0.2"/>
   <xacro:property name="RodaDir_mass" value="1.0"/>
 
+  <!-- TAREFA: Defina as propriedades do Link 2 -->
+  <xacro:property name="Sensor_base_length" value="0.05"/>
+  <xacro:property name="Sensor_base_radius" value="0.1"/>
+  <xacro:property name="Sensor_base_mass" value="1.0"/>
+
   <!-- Propriedades do End Effector -->
   <xacro:property name="end_effector_radius" value="0.1"/>
   <xacro:property name="end_effector_mass" value="0.1"/>
