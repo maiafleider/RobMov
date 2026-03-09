@@ -1,5 +1,6 @@
+<?xml version="1.0" ?>
 <sdf version='1.10'>
-  <world name='casa'>
+  <world name='Mundo'>
     <physics name='1ms' type='ignored'>
       <max_step_size>0.001</max_step_size>
       <real_time_factor>1</real_time_factor>
@@ -22,6 +23,23 @@
       <background>0.699999988 0.699999988 0.699999988 1</background>
       <shadows>true</shadows>
     </scene>
+    <!-- ==================== GROUND PLANE ==================== -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal></plane></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>100 100</size></plane></geometry>
+          <material>
+            <ambient>0.5 0.5 0.5 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
     <model name='floor'>
       <static>true</static>
       <pose>5.5 4.5 0.01 0 0 0</pose>
