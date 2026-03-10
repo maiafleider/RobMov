@@ -75,6 +75,31 @@
     <axis xyz="0 0 -1"/>
   </joint>
     <!-- ==================== -->
+  <!-- CAMERA LINK -->
+  <!-- ==================== -->
+  <link name="camera">
+  <visual>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <geometry>
+  <box size="0.04 0.04 0.04"/>
+  </geometry>
+  <material name="gray"/>
+  </visual>
+  <collision>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <geometry>
+  <box size="0.04 0.04 0.04"/>
+  </geometry>
+  </collision>
+  <inertial>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <mass value="0.05"/>
+  <inertia ixx="0.000013" ixy="0" ixz="0"
+              iyy="0.000013" iyz="0"
+              izz="0.000013"/>
+  </inertial>
+  </link>
+    <!-- ==================== -->
     <!-- END EFFECTOR         -->
     <!-- ==================== -->
     <!-- TAREFA: Use o macro sphere_link para criar o end_effector -->
@@ -107,4 +132,46 @@
     <child link="end_effector"/>
     <origin xyz="0 0 ${end_effector_radius - 0.05}" rpy="0 0 0"/>
   </joint>
+
+  <link name = "imu"/>
+  <joint name="imu_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="imu"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  
+  <!-- ==================== -->
+  <!-- LIDAR -->
+  <!-- ==================== -->
+  <link name="lidar">
+  <visual>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <geometry>
+  <cylinder radius="0.04" length="0.02"/>
+  </geometry>
+  <material name="red"/>
+  </visual>
+  <collision>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <geometry>
+  <cylinder radius="0.04" length="0.02"/>
+  </geometry>
+  </collision>
+  <inertial>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <mass value="0.05"/>
+  <inertia ixx="0.00002" ixy="0" ixz="0"
+
+              iyy="0.00002" iyz="0"
+
+              izz="0.00002"/>
+  </inertial>
+  </link>
+  
+  <joint name="lidar_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="lidar"/>
+  <origin xyz="0 0 0.12" rpy="0 0 0"/>
+  </joint>
+ 
 </robot>
