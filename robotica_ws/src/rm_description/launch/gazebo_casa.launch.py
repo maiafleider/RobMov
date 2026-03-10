@@ -14,7 +14,7 @@ def generate_launch_description():
     pkg_share = get_package_share_directory(pkg_name)
 
     # Caminho para o arquivo do mundo
-    world_file = os.path.join(pkg_share, 'world', 'casa.sdf')
+    world_file = os.path.join(pkg_share, 'world', 'Meu_mundo.sdf')
 
     # Processar o arquivo XACRO para obter o URDF
     xacro_file = os.path.join(pkg_share, 'urdf', 'robot.urdf.xacro')
