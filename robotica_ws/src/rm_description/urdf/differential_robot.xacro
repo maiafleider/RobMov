@@ -55,7 +55,7 @@
   <joint name="jointEsc" type="continuous">
   <parent link="base_link"/>
   <child link="RodaEsc"/>
-  <origin xyz="0 0.125 0" rpy="1.57079632679 0 0"/>
+  <origin xyz="0 0.145 0" rpy="1.57079632679 0 0"/>
   <axis xyz="0 0 -1"/>
   </joint>
   <!-- ==================== -->
@@ -71,40 +71,40 @@
   <joint name="jointDir" type="continuous">
     <parent link="base_link"/>
     <child link="RodaDir"/>
-    <origin xyz="0 -0.125 0" rpy="1.57079632679 0 0"/>
+    <origin xyz="0 -0.115 0" rpy="1.57079632679 0 0"/>
     <axis xyz="0 0 -1"/>
   </joint>
     <!-- ==================== -->
     <!-- END EFFECTOR         -->
     <!-- ==================== -->
     <!-- TAREFA: Use o macro sphere_link para criar o end_effector -->
-<link name="end_effector">
-<visual>
-<origin xyz="0 0 0" rpy="0 0 0"/>
-<geometry>
-<sphere radius="${end_effector_radius}"/>
-</geometry>
-<material name="gray"/>
-</visual>
-<collision>
-<origin xyz="0 0 0" rpy="0 0 0"/>
-<geometry>
-<sphere radius="${end_effector_radius}"/>
-</geometry>
-</collision>
-<inertial>
-<origin xyz="0 0 0" rpy="0 0 0"/>
-<mass value="${end_effector_mass}"/>
-<inertia ixx="${2.0/5.0 * end_effector_mass * end_effector_radius * end_effector_radius}"
-            ixy="0" ixz="0"
-            iyy="${2.0/5.0 * end_effector_mass * end_effector_radius * end_effector_radius}"
-            iyz="0"
-            izz="${2.0/5.0 * end_effector_mass * end_effector_radius * end_effector_radius}"/>
-</inertial>
-</link>
-<joint name="end_effector_joint" type="fixed">
-<parent link="base_link"/>
-<child link="end_effector"/>
-<origin xyz="0 0 ${end_effector_radius - 0.05}" rpy="0 0 0"/>
-</joint>
+  <link name="end_effector">
+    <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+    <sphere radius="${end_effector_radius}"/>
+    </geometry>
+    <material name="gray"/>
+    </visual>
+    <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+    <sphere radius="${end_effector_radius}"/>
+    </geometry>
+    </collision>
+    <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="${end_effector_mass}"/>
+    <inertia ixx="${2.0/5.0 * end_effector_mass * end_effector_radius * end_effector_radius}"
+                ixy="0" ixz="0"
+                iyy="${2.0/5.0 * end_effector_mass * end_effector_radius * end_effector_radius}"
+                iyz="0"
+                izz="${2.0/5.0 * end_effector_mass * end_effector_radius * end_effector_radius}"/>
+    </inertial>
+  </link>
+  <joint name="end_effector_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="end_effector"/>
+    <origin xyz="0 0 ${end_effector_radius - 0.05}" rpy="0 0 0"/>
+  </joint>
 </robot>
