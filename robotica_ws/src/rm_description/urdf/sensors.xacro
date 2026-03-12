@@ -34,9 +34,6 @@
     </sensor>
   </gazebo>
 
-<?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-
     <!-- Sensor Câmera -->
     <gazebo reference="camera">
         <sensor name="camera" type="camera">
@@ -60,5 +57,4 @@
             <gz_frame_id>camera</gz_frame_id>
         </sensor>
     </gazebo>
-
 </robot>
