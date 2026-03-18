@@ -7,6 +7,7 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(action_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
@@ -25,5 +26,8 @@ if(BUILD_TESTING)
 endif()
 rosidl_generate_interfaces(${PROJECT_NAME}
     "msg/Aula8.msg"
+    "srv/Aula9.srv"
+    "action/Aula10.action"
 )
+
 ament_package()

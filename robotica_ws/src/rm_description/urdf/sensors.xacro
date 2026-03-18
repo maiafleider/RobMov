@@ -1,40 +1,41 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <!-- IMU -->
-  <gazebo reference="imu">
-    <sensor type="imu" name="imu_sensor">
-      <update_rate>50</update_rate>
-      <plugin name="imu_plugin" filename="libgazebo_ros_imu_sensor.so">
-        <topicName>/imu/data</topicName>
-      </plugin>
-    </sensor>
-  </gazebo>
+    <!-- Sensor LiDAR -->
+    <gazebo reference="lidar">
+        <sensor name="laser" type="gpu_lidar">
+            <pose>0 0 0 0 0 0</pose>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <lidar>
+                <scan>
+                    <horizontal>
+                        <samples>360</samples>
+                        <min_angle>-3.14</min_angle>
+                        <max_angle>3.14</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.3</min>
+                    <max>12</max>
+                </range>
+            </lidar>
+            <topic>scan</topic>
+            <gz_frame_id>lidar</gz_frame_id>
+        </sensor>
+    </gazebo>
 
-  <!-- LIDAR -->
-  <gazebo reference="lidar">
-    <sensor type="ray" name="lidar_sensor">
-      <update_rate>10</update_rate>
-      <ray>
-        <scan>
-          <horizontal>
-            <samples>360</samples>
-            <min_angle>-3.14</min_angle>
-            <max_angle>3.14</max_angle>
-          </horizontal>
-        </scan>
-        <range>
-          <min>0.1</min>
-          <max>8.0</max>
-        </range>
-      </ray>
-      <plugin name="laser_plugin" filename="libgazebo_ros_ray_sensor.so">
-        <topicName>/scan</topicName>
-      </plugin>
-    </sensor>
-  </gazebo>
+    <!-- Sensor IMU -->
+    <gazebo reference="imu">
+      <sensor name="imu_sensor" type="imu">
+            <always_on>1</always_on>
+            <update_rate>10</update_rate>
+            <visualize>true</visualize>
+            <topic>imu/data</topic>
+        </sensor>
+    </gazebo>
 
-    <!-- Sensor Câmera -->
+    <!-- Sensor Camera -->
     <gazebo reference="camera">
         <sensor name="camera" type="camera">
             <pose>0 0 0 0 0 0</pose>
@@ -57,4 +58,5 @@
             <gz_frame_id>camera</gz_frame_id>
         </sensor>
     </gazebo>
+
 </robot>

@@ -13,7 +13,7 @@ def generate_launch_description():
             os.path.join(
                 get_package_share_directory('rm_description'),
                 'launch',
-                'gazebo_casa.launch.py'
+                'robot_simulation.launch.py'
             )
         )
     )
